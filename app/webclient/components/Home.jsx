@@ -464,6 +464,7 @@ export default class Home extends React.Component {
   }
   
   moveUp=(_id,obj)=>{
+
 console.log(obj);
     this.state.playCard.forEach((data,i)=>{
       if(data.position==obj.position){
@@ -487,8 +488,12 @@ console.log(obj);
     }
     this.state.playCard.sort(compare);
     
-
-    this.setState({firstRow,secondRow,thirdRow,fourthRow,playCard});
+this.setState({playCard:this.state.playCard})
+    
+    var firstRow=[];
+    var secondRow=[];
+    var thirdRow=[];
+    var fourthRow=[];
     this.state.playCard.forEach((data, i)=>{
       if(i<=12){
         firstRow.push(data);
@@ -500,6 +505,7 @@ console.log(obj);
         fourthRow.push(data)
       }
     });
+    this.setState({firstRow,secondRow,thirdRow,fourthRow});
     // this.setState({firstRow:this.state.firstRow});
 
   }
@@ -530,6 +536,10 @@ console.log(obj);
         
         this.state.playCard.sort(compare);
         this.setState({playCard:this.state.playCard});
+        var firstRow=[];
+    var secondRow=[];
+    var thirdRow=[];
+    var fourthRow=[];
         this.state.playCard.forEach((data, i)=>{
           if(i<=12){
             firstRow.push(data);
@@ -541,6 +551,7 @@ console.log(obj);
             fourthRow.push(data)
           }
         });
+        this.setState({firstRow,secondRow,thirdRow,fourthRow});
       }
       
       draw=(_id)=>{
@@ -559,6 +570,10 @@ console.log(obj);
         })
         
         this.setState({playCard:this.state.playCard,drawCard:newObj});
+        var firstRow=[];
+    var secondRow=[];
+    var thirdRow=[];
+    var fourthRow=[];
         this.state.playCard.forEach((data, i)=>{
           if(i<=12){
             firstRow.push(data);
@@ -570,6 +585,7 @@ console.log(obj);
             fourthRow.push(data)
           }
         });
+        this.setState({firstRow,secondRow,thirdRow,fourthRow});
       }
 
       sortData=()=>{
